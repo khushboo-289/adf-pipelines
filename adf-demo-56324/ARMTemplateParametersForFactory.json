@@ -4,6 +4,21 @@
 	"parameters": {
 		"factoryName": {
 			"value": "adf-demo-56324"
+		},
+		"AdvWorksDb_password": {
+			"value": ""
+		},
+		"BlobStorageProducts_connectionString": {
+			"value": ""
+		},
+		"AdvWorksDb_properties_typeProperties_server": {
+			"value": "dbserver867435.database.windows.net"
+		},
+		"AdvWorksDb_properties_typeProperties_database": {
+			"value": "exampledb"
+		},
+		"AdvWorksDb_properties_typeProperties_userName": {
+			"value": "khushboo"
 		}
 	}
 }
