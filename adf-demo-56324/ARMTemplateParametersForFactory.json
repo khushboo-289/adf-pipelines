@@ -11,6 +11,12 @@
 		"BlobStorageProducts_connectionString": {
 			"value": ""
 		},
+		"CusomerDb_password": {
+			"value": ""
+		},
+		"CustomerBlobStorage_connectionString": {
+			"value": ""
+		},
 		"AdvWorksDb_properties_typeProperties_server": {
 			"value": "dbserver867435.database.windows.net"
 		},
@@ -18,6 +24,15 @@
 			"value": "exampledb"
 		},
 		"AdvWorksDb_properties_typeProperties_userName": {
+			"value": "khushboo"
+		},
+		"CusomerDb_properties_typeProperties_server": {
+			"value": "dbserver867435.database.windows.net"
+		},
+		"CusomerDb_properties_typeProperties_database": {
+			"value": "exampledb"
+		},
+		"CusomerDb_properties_typeProperties_userName": {
 			"value": "khushboo"
 		}
 	}

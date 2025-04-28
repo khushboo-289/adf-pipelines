@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'BlobStorageProducts'"
 		},
+		"CusomerDb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'CusomerDb'"
+		},
+		"CustomerBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CustomerBlobStorage'"
+		},
 		"AdvWorksDb_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "dbserver867435.database.windows.net"
@@ -24,6 +32,18 @@
 			"defaultValue": "exampledb"
 		},
 		"AdvWorksDb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khushboo"
+		},
+		"CusomerDb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dbserver867435.database.windows.net"
+		},
+		"CusomerDb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "exampledb"
+		},
+		"CusomerDb_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "khushboo"
 		},
@@ -60,6 +80,12 @@
 					"BlobStorageProducts_connectionString": {
 						"value": "[parameters('BlobStorageProducts_connectionString')]"
 					},
+					"CusomerDb_password": {
+						"value": "[parameters('CusomerDb_password')]"
+					},
+					"CustomerBlobStorage_connectionString": {
+						"value": "[parameters('CustomerBlobStorage_connectionString')]"
+					},
 					"AdvWorksDb_properties_typeProperties_server": {
 						"value": "[parameters('AdvWorksDb_properties_typeProperties_server')]"
 					},
@@ -68,6 +94,15 @@
 					},
 					"AdvWorksDb_properties_typeProperties_userName": {
 						"value": "[parameters('AdvWorksDb_properties_typeProperties_userName')]"
+					},
+					"CusomerDb_properties_typeProperties_server": {
+						"value": "[parameters('CusomerDb_properties_typeProperties_server')]"
+					},
+					"CusomerDb_properties_typeProperties_database": {
+						"value": "[parameters('CusomerDb_properties_typeProperties_database')]"
+					},
+					"CusomerDb_properties_typeProperties_userName": {
+						"value": "[parameters('CusomerDb_properties_typeProperties_userName')]"
 					}
 				}
 			},
