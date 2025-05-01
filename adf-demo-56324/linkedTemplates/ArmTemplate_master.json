@@ -23,13 +23,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'CustomerBlobStorage'"
 		},
+		"ProductBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ProductBlobStorage'"
+		},
 		"AdvWorksDb_properties_typeProperties_server": {
 			"type": "string",
-			"defaultValue": "dbserver867435.database.windows.net"
+			"defaultValue": "khushbooserver7832.database.windows.net"
 		},
 		"AdvWorksDb_properties_typeProperties_database": {
 			"type": "string",
-			"defaultValue": "exampledb"
+			"defaultValue": "DemoDatabase"
 		},
 		"AdvWorksDb_properties_typeProperties_userName": {
 			"type": "string",
@@ -85,6 +89,9 @@
 					},
 					"CustomerBlobStorage_connectionString": {
 						"value": "[parameters('CustomerBlobStorage_connectionString')]"
+					},
+					"ProductBlobStorage_connectionString": {
+						"value": "[parameters('ProductBlobStorage_connectionString')]"
 					},
 					"AdvWorksDb_properties_typeProperties_server": {
 						"value": "[parameters('AdvWorksDb_properties_typeProperties_server')]"

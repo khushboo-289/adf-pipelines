@@ -17,11 +17,14 @@
 		"CustomerBlobStorage_connectionString": {
 			"value": ""
 		},
+		"ProductBlobStorage_connectionString": {
+			"value": ""
+		},
 		"AdvWorksDb_properties_typeProperties_server": {
-			"value": "dbserver867435.database.windows.net"
+			"value": "khushbooserver7832.database.windows.net"
 		},
 		"AdvWorksDb_properties_typeProperties_database": {
-			"value": "exampledb"
+			"value": "DemoDatabase"
 		},
 		"AdvWorksDb_properties_typeProperties_userName": {
 			"value": "khushboo"
