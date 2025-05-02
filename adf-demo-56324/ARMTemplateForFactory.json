@@ -47,6 +47,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ADLSTripData'"
 		},
+		"TripAggregateBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'TripAggregateBlobStorage1'"
+		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
@@ -1156,6 +1160,44 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "dfAggregate",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [
+							{
+								"activity": "CopyTripdata",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "dfTripData",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"TripDataCsv": {},
+									"TripFaresTable": {},
+									"TripAggregateSink": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
 					}
 				],
 				"policy": {
@@ -1165,7 +1207,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/TripData')]",
-				"[concat(variables('factoryId'), '/datasets/TripDataCsv')]"
+				"[concat(variables('factoryId'), '/datasets/TripDataCsv')]",
+				"[concat(variables('factoryId'), '/dataflows/dfTripData')]"
 			]
 		},
 		{
@@ -1283,7 +1326,7 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "TripData"
+					"table": "TripFares"
 				}
 			},
 			"dependsOn": [
@@ -1333,6 +1376,148 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ADLSTripData')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dfTripData')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "TripDataCsv",
+								"type": "DatasetReference"
+							},
+							"name": "TripDataCsv"
+						},
+						{
+							"dataset": {
+								"referenceName": "TripData",
+								"type": "DatasetReference"
+							},
+							"name": "TripFaresTable"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "TripAggregateCsv",
+								"type": "DatasetReference"
+							},
+							"name": "TripAggregateSink"
+						}
+					],
+					"transformations": [
+						{
+							"name": "JoinTrip"
+						},
+						{
+							"name": "AggregateByPayType"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          medallion as string,",
+						"          hack_license as string,",
+						"          vendor_id as string,",
+						"          rate_code as short,",
+						"          store_and_fwd_flag as boolean,",
+						"          pickup_datetime as timestamp,",
+						"          dropoff_datetime as timestamp,",
+						"          passenger_count as short,",
+						"          trip_time_in_secs as short,",
+						"          trip_distance as double,",
+						"          pickup_longitude as double,",
+						"          pickup_latitude as double,",
+						"          dropoff_longitude as double,",
+						"          dropoff_latitude as double",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> TripDataCsv",
+						"source(output(",
+						"          medallion as string,",
+						"          hack_license as string,",
+						"          vendor_id as string,",
+						"          pickup_datetime as string,",
+						"          payment_type as string,",
+						"          fare_amount as string,",
+						"          surcharge as string,",
+						"          mta_tax as string,",
+						"          tip_amount as string,",
+						"          tolls_amount as string,",
+						"          total_amount as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> TripFaresTable",
+						"TripDataCsv, TripFaresTable join(TripDataCsv@medallion == TripFaresTable@medallion",
+						"     && TripDataCsv@hack_license == TripFaresTable@hack_license",
+						"     && TripDataCsv@vendor_id == TripFaresTable@vendor_id",
+						"     && TripDataCsv@pickup_datetime == toTimestamp(TripFaresTable@pickup_datetime),",
+						"     joinType:'inner',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> JoinTrip",
+						"JoinTrip aggregate(groupBy(payment_type),",
+						"     Average_fare = avg(toInteger(total_amount)),",
+						"          Total_trip_distance = sum(trip_distance)) ~> AggregateByPayType",
+						"AggregateByPayType sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> TripAggregateSink"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/TripDataCsv')]",
+				"[concat(variables('factoryId'), '/datasets/TripData')]",
+				"[concat(variables('factoryId'), '/datasets/TripAggregateCsv')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TripAggregateBlobStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('TripAggregateBlobStorage1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TripAggregateCsv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "TripAggregateBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "TripAggregation.csv",
+						"container": "tripdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/TripAggregateBlobStorage1')]"
 			]
 		}
 	]

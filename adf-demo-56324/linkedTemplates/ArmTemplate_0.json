@@ -47,6 +47,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ADLSTripData'"
 		},
+		"TripAggregateBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'TripAggregateBlobStorage1'"
+		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
@@ -318,6 +322,19 @@
 						"type": "SecureString",
 						"value": "[parameters('ADLSTripData_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TripAggregateBlobStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('TripAggregateBlobStorage1_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -696,84 +713,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/Adlsgen22')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TripData')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "TripdataDB2",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "medallion",
-						"type": "nvarchar"
-					},
-					{
-						"name": "hack_license",
-						"type": "nvarchar"
-					},
-					{
-						"name": "vendor_id",
-						"type": "nvarchar"
-					},
-					{
-						"name": "rate_code",
-						"type": "nvarchar"
-					},
-					{
-						"name": "store_and_fwd_flag",
-						"type": "nvarchar"
-					},
-					{
-						"name": "pickup_datetime",
-						"type": "nvarchar"
-					},
-					{
-						"name": "dropoff_datetime",
-						"type": "nvarchar"
-					},
-					{
-						"name": "passenger_count",
-						"type": "nvarchar"
-					},
-					{
-						"name": "trip_time_in_secs",
-						"type": "nvarchar"
-					},
-					{
-						"name": "trip_distance",
-						"type": "nvarchar"
-					},
-					{
-						"name": "pickup_longitude",
-						"type": "nvarchar"
-					},
-					{
-						"name": "pickup_latitude",
-						"type": "nvarchar"
-					},
-					{
-						"name": "dropoff_longitude",
-						"type": "nvarchar"
-					},
-					{
-						"name": "dropoff_latitude",
-						"type": "nvarchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "TripData"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/TripdataDB2')]"
 			]
 		}
 	]

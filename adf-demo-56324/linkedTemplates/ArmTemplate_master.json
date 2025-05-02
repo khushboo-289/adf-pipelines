@@ -47,6 +47,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ADLSTripData'"
 		},
+		"TripAggregateBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'TripAggregateBlobStorage1'"
+		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
@@ -163,6 +167,9 @@
 					},
 					"ADLSTripData_accountKey": {
 						"value": "[parameters('ADLSTripData_accountKey')]"
+					},
+					"TripAggregateBlobStorage1_connectionString": {
+						"value": "[parameters('TripAggregateBlobStorage1_connectionString')]"
 					},
 					"ADLSGen2_properties_typeProperties_url": {
 						"value": "[parameters('ADLSGen2_properties_typeProperties_url')]"

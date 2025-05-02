@@ -35,6 +35,9 @@
 		"ADLSTripData_accountKey": {
 			"value": ""
 		},
+		"TripAggregateBlobStorage1_connectionString": {
+			"value": ""
+		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"value": "https://moviedb65476.dfs.core.windows.net/"
 		},
