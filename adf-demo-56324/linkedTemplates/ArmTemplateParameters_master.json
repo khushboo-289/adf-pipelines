@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "adf-demo-56324"
 		},
+		"ADLSGen2_accountKey": {
+			"value": ""
+		},
 		"AdvWorksDb_password": {
 			"value": ""
 		},
@@ -19,6 +22,21 @@
 		},
 		"ProductBlobStorage_connectionString": {
 			"value": ""
+		},
+		"Adlsgen22_accountKey": {
+			"value": ""
+		},
+		"TaxiTripDb_password": {
+			"value": ""
+		},
+		"TripdataDB2_password": {
+			"value": ""
+		},
+		"ADLSTripData_accountKey": {
+			"value": ""
+		},
+		"ADLSGen2_properties_typeProperties_url": {
+			"value": "https://moviedb65476.dfs.core.windows.net/"
 		},
 		"AdvWorksDb_properties_typeProperties_server": {
 			"value": "khushbooserver7832.database.windows.net"
@@ -37,6 +55,30 @@
 		},
 		"CusomerDb_properties_typeProperties_userName": {
 			"value": "khushboo"
+		},
+		"Adlsgen22_properties_typeProperties_url": {
+			"value": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"TaxiTripDb_properties_typeProperties_server": {
+			"value": "khushbooserver7832.database.windows.net"
+		},
+		"TaxiTripDb_properties_typeProperties_database": {
+			"value": "taxi-data"
+		},
+		"TaxiTripDb_properties_typeProperties_userName": {
+			"value": "khushboo"
+		},
+		"TripdataDB2_properties_typeProperties_server": {
+			"value": "khushbooserver7832.database.windows.net"
+		},
+		"TripdataDB2_properties_typeProperties_database": {
+			"value": "taxi-data"
+		},
+		"TripdataDB2_properties_typeProperties_userName": {
+			"value": "khushboo"
+		},
+		"ADLSTripData_properties_typeProperties_url": {
+			"value": "https://moviedb65476.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"value": ""
