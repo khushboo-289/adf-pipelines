@@ -13,6 +13,83 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/MovieDB2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Adlsgen22",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "moviesDB.csv",
+						"fileSystem": "sample-data"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "movie",
+						"type": "String"
+					},
+					{
+						"name": "title",
+						"type": "String"
+					},
+					{
+						"name": "genres",
+						"type": "String"
+					},
+					{
+						"name": "year",
+						"type": "String"
+					},
+					{
+						"name": "Rating",
+						"type": "String"
+					},
+					{
+						"name": "Rotton Tomato",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/MoviesSink')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Adlsgen22",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "output",
+						"fileSystem": "sample-data"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/TripData')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -137,6 +214,172 @@
 					"quoteChar": "\""
 				},
 				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Flipkartblob')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "FlipkartBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "flipkart.csv",
+						"container": "flipkartdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "id",
+						"type": "String"
+					},
+					{
+						"name": "title",
+						"type": "String"
+					},
+					{
+						"name": "Rating",
+						"type": "String"
+					},
+					{
+						"name": "maincateg",
+						"type": "String"
+					},
+					{
+						"name": "platform",
+						"type": "String"
+					},
+					{
+						"name": "actprice1",
+						"type": "String"
+					},
+					{
+						"name": "norating1",
+						"type": "String"
+					},
+					{
+						"name": "noreviews1",
+						"type": "String"
+					},
+					{
+						"name": "star_5f",
+						"type": "String"
+					},
+					{
+						"name": "star_4f",
+						"type": "String"
+					},
+					{
+						"name": "star_3f",
+						"type": "String"
+					},
+					{
+						"name": "star_2f",
+						"type": "String"
+					},
+					{
+						"name": "star_1f",
+						"type": "String"
+					},
+					{
+						"name": "fulfilled1",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/flipkartdataCsv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "FlipkartBlobStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Flipkartnew.csv",
+						"container": "flipkartdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "id",
+						"type": "String"
+					},
+					{
+						"name": "title",
+						"type": "String"
+					},
+					{
+						"name": "Rating",
+						"type": "String"
+					},
+					{
+						"name": "maincateg",
+						"type": "String"
+					},
+					{
+						"name": "platform",
+						"type": "String"
+					},
+					{
+						"name": "actprice1",
+						"type": "String"
+					},
+					{
+						"name": "norating1",
+						"type": "String"
+					},
+					{
+						"name": "noreviews1",
+						"type": "String"
+					},
+					{
+						"name": "star_5f",
+						"type": "String"
+					},
+					{
+						"name": "star_4f",
+						"type": "String"
+					},
+					{
+						"name": "star_3f",
+						"type": "String"
+					},
+					{
+						"name": "star_2f",
+						"type": "String"
+					},
+					{
+						"name": "star_1f",
+						"type": "String"
+					},
+					{
+						"name": "fulfilled1",
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": []
 		},
@@ -490,7 +733,10 @@
 					]
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/MovieDB2')]",
+				"[concat(variables('factoryId'), '/datasets/MoviesSink')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/dfTripData')]",
@@ -591,6 +837,83 @@
 				"[concat(variables('factoryId'), '/datasets/TripDataCsv')]",
 				"[concat(variables('factoryId'), '/datasets/TripData')]",
 				"[concat(variables('factoryId'), '/datasets/TripAggregateCsv')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/7 Flipkart PL')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "flipkartcopy",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "Flipkartblob",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "flipkartdataCsv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Flipkartblob')]",
+				"[concat(variables('factoryId'), '/datasets/flipkartdataCsv')]"
 			]
 		},
 		{

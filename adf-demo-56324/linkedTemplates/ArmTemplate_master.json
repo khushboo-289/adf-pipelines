@@ -51,6 +51,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'TripAggregateBlobStorage1'"
 		},
+		"FlipkartBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'FlipkartBlobStorage1'"
+		},
+		"FlipkartBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'FlipkartBlobStorage2'"
+		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
@@ -170,6 +178,12 @@
 					},
 					"TripAggregateBlobStorage1_connectionString": {
 						"value": "[parameters('TripAggregateBlobStorage1_connectionString')]"
+					},
+					"FlipkartBlobStorage1_connectionString": {
+						"value": "[parameters('FlipkartBlobStorage1_connectionString')]"
+					},
+					"FlipkartBlobStorage2_connectionString": {
+						"value": "[parameters('FlipkartBlobStorage2_connectionString')]"
 					},
 					"ADLSGen2_properties_typeProperties_url": {
 						"value": "[parameters('ADLSGen2_properties_typeProperties_url')]"
