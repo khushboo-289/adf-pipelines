@@ -8,6 +8,12 @@
 		"ADLSGen2_accountKey": {
 			"value": ""
 		},
+		"ADLSTripData_accountKey": {
+			"value": ""
+		},
+		"Adlsgen22_accountKey": {
+			"value": ""
+		},
 		"AdvWorksDb_password": {
 			"value": ""
 		},
@@ -20,31 +26,37 @@
 		"CustomerBlobStorage_connectionString": {
 			"value": ""
 		},
-		"ProductBlobStorage_connectionString": {
-			"value": ""
-		},
-		"Adlsgen22_accountKey": {
-			"value": ""
-		},
-		"TaxiTripDb_password": {
-			"value": ""
-		},
-		"TripdataDB2_password": {
-			"value": ""
-		},
-		"ADLSTripData_accountKey": {
-			"value": ""
-		},
-		"TripAggregateBlobStorage1_connectionString": {
-			"value": ""
-		},
 		"FlipkartBlobStorage1_connectionString": {
 			"value": ""
 		},
 		"FlipkartBlobStorage2_connectionString": {
 			"value": ""
 		},
+		"Flipkartnewstorage_connectionString": {
+			"value": ""
+		},
+		"Parquetflipkart_connectionString": {
+			"value": ""
+		},
+		"ProductBlobStorage_connectionString": {
+			"value": ""
+		},
+		"TaxiTripDb_password": {
+			"value": ""
+		},
+		"TripAggregateBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"TripdataDB2_password": {
+			"value": ""
+		},
 		"ADLSGen2_properties_typeProperties_url": {
+			"value": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"ADLSTripData_properties_typeProperties_url": {
+			"value": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"Adlsgen22_properties_typeProperties_url": {
 			"value": "https://moviedb65476.dfs.core.windows.net/"
 		},
 		"AdvWorksDb_properties_typeProperties_server": {
@@ -65,9 +77,6 @@
 		"CusomerDb_properties_typeProperties_userName": {
 			"value": "khushboo"
 		},
-		"Adlsgen22_properties_typeProperties_url": {
-			"value": "https://moviedb65476.dfs.core.windows.net/"
-		},
 		"TaxiTripDb_properties_typeProperties_server": {
 			"value": "khushbooserver7832.database.windows.net"
 		},
@@ -85,9 +94,6 @@
 		},
 		"TripdataDB2_properties_typeProperties_userName": {
 			"value": "khushboo"
-		},
-		"ADLSTripData_properties_typeProperties_url": {
-			"value": "https://moviedb65476.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"value": ""

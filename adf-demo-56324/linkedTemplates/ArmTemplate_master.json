@@ -11,6 +11,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ADLSGen2'"
 		},
+		"ADLSTripData_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLSTripData'"
+		},
+		"Adlsgen22_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Adlsgen22'"
+		},
 		"AdvWorksDb_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AdvWorksDb'"
@@ -27,30 +35,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'CustomerBlobStorage'"
 		},
-		"ProductBlobStorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ProductBlobStorage'"
-		},
-		"Adlsgen22_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'Adlsgen22'"
-		},
-		"TaxiTripDb_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'TaxiTripDb'"
-		},
-		"TripdataDB2_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'TripdataDB2'"
-		},
-		"ADLSTripData_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'ADLSTripData'"
-		},
-		"TripAggregateBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'TripAggregateBlobStorage1'"
-		},
 		"FlipkartBlobStorage1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'FlipkartBlobStorage1'"
@@ -59,7 +43,39 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'FlipkartBlobStorage2'"
 		},
+		"Flipkartnewstorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Flipkartnewstorage'"
+		},
+		"Parquetflipkart_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Parquetflipkart'"
+		},
+		"ProductBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ProductBlobStorage'"
+		},
+		"TaxiTripDb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'TaxiTripDb'"
+		},
+		"TripAggregateBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'TripAggregateBlobStorage1'"
+		},
+		"TripdataDB2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'TripdataDB2'"
+		},
 		"ADLSGen2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"ADLSTripData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"Adlsgen22_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
 		},
@@ -87,10 +103,6 @@
 			"type": "string",
 			"defaultValue": "khushboo"
 		},
-		"Adlsgen22_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
-		},
 		"TaxiTripDb_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "khushbooserver7832.database.windows.net"
@@ -114,10 +126,6 @@
 		"TripdataDB2_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "khushboo"
-		},
-		"ADLSTripData_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -149,6 +157,12 @@
 					"ADLSGen2_accountKey": {
 						"value": "[parameters('ADLSGen2_accountKey')]"
 					},
+					"ADLSTripData_accountKey": {
+						"value": "[parameters('ADLSTripData_accountKey')]"
+					},
+					"Adlsgen22_accountKey": {
+						"value": "[parameters('Adlsgen22_accountKey')]"
+					},
 					"AdvWorksDb_password": {
 						"value": "[parameters('AdvWorksDb_password')]"
 					},
@@ -161,32 +175,38 @@
 					"CustomerBlobStorage_connectionString": {
 						"value": "[parameters('CustomerBlobStorage_connectionString')]"
 					},
-					"ProductBlobStorage_connectionString": {
-						"value": "[parameters('ProductBlobStorage_connectionString')]"
-					},
-					"Adlsgen22_accountKey": {
-						"value": "[parameters('Adlsgen22_accountKey')]"
-					},
-					"TaxiTripDb_password": {
-						"value": "[parameters('TaxiTripDb_password')]"
-					},
-					"TripdataDB2_password": {
-						"value": "[parameters('TripdataDB2_password')]"
-					},
-					"ADLSTripData_accountKey": {
-						"value": "[parameters('ADLSTripData_accountKey')]"
-					},
-					"TripAggregateBlobStorage1_connectionString": {
-						"value": "[parameters('TripAggregateBlobStorage1_connectionString')]"
-					},
 					"FlipkartBlobStorage1_connectionString": {
 						"value": "[parameters('FlipkartBlobStorage1_connectionString')]"
 					},
 					"FlipkartBlobStorage2_connectionString": {
 						"value": "[parameters('FlipkartBlobStorage2_connectionString')]"
 					},
+					"Flipkartnewstorage_connectionString": {
+						"value": "[parameters('Flipkartnewstorage_connectionString')]"
+					},
+					"Parquetflipkart_connectionString": {
+						"value": "[parameters('Parquetflipkart_connectionString')]"
+					},
+					"ProductBlobStorage_connectionString": {
+						"value": "[parameters('ProductBlobStorage_connectionString')]"
+					},
+					"TaxiTripDb_password": {
+						"value": "[parameters('TaxiTripDb_password')]"
+					},
+					"TripAggregateBlobStorage1_connectionString": {
+						"value": "[parameters('TripAggregateBlobStorage1_connectionString')]"
+					},
+					"TripdataDB2_password": {
+						"value": "[parameters('TripdataDB2_password')]"
+					},
 					"ADLSGen2_properties_typeProperties_url": {
 						"value": "[parameters('ADLSGen2_properties_typeProperties_url')]"
+					},
+					"ADLSTripData_properties_typeProperties_url": {
+						"value": "[parameters('ADLSTripData_properties_typeProperties_url')]"
+					},
+					"Adlsgen22_properties_typeProperties_url": {
+						"value": "[parameters('Adlsgen22_properties_typeProperties_url')]"
 					},
 					"AdvWorksDb_properties_typeProperties_server": {
 						"value": "[parameters('AdvWorksDb_properties_typeProperties_server')]"
@@ -206,9 +226,6 @@
 					"CusomerDb_properties_typeProperties_userName": {
 						"value": "[parameters('CusomerDb_properties_typeProperties_userName')]"
 					},
-					"Adlsgen22_properties_typeProperties_url": {
-						"value": "[parameters('Adlsgen22_properties_typeProperties_url')]"
-					},
 					"TaxiTripDb_properties_typeProperties_server": {
 						"value": "[parameters('TaxiTripDb_properties_typeProperties_server')]"
 					},
@@ -226,9 +243,6 @@
 					},
 					"TripdataDB2_properties_typeProperties_userName": {
 						"value": "[parameters('TripdataDB2_properties_typeProperties_userName')]"
-					},
-					"ADLSTripData_properties_typeProperties_url": {
-						"value": "[parameters('ADLSTripData_properties_typeProperties_url')]"
 					}
 				}
 			},
