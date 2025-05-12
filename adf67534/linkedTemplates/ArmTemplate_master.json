@@ -1,0 +1,327 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf67534"
+		},
+		"ADLSGen2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLSGen2'"
+		},
+		"ADLSTripData_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLSTripData'"
+		},
+		"Adlsgen22_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Adlsgen22'"
+		},
+		"AdvWorksDb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AdvWorksDb'"
+		},
+		"BlobStorageProducts_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'BlobStorageProducts'"
+		},
+		"CusomerDb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'CusomerDb'"
+		},
+		"CustomerBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CustomerBlobStorage'"
+		},
+		"FlipkartBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'FlipkartBlobStorage1'"
+		},
+		"FlipkartBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'FlipkartBlobStorage2'"
+		},
+		"Flipkartnewstorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Flipkartnewstorage'"
+		},
+		"Parquetflipkart_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Parquetflipkart'"
+		},
+		"ProductBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ProductBlobStorage'"
+		},
+		"TaxiTripDb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'TaxiTripDb'"
+		},
+		"TripAggregateBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'TripAggregateBlobStorage1'"
+		},
+		"TripdataDB2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'TripdataDB2'"
+		},
+		"AdvWorks2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AdvWorks2'"
+		},
+		"LookupBlob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LookupBlob'"
+		},
+		"ADLSGen2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"ADLSTripData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"Adlsgen22_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"AdvWorksDb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "khushbooserver7832.database.windows.net"
+		},
+		"AdvWorksDb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DemoDatabase"
+		},
+		"AdvWorksDb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khushboo"
+		},
+		"CusomerDb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dbserver867435.database.windows.net"
+		},
+		"CusomerDb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "exampledb"
+		},
+		"CusomerDb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khushboo"
+		},
+		"TaxiTripDb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "khushbooserver7832.database.windows.net"
+		},
+		"TaxiTripDb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "taxi-data"
+		},
+		"TaxiTripDb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khushboo"
+		},
+		"TripdataDB2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "khushbooserver7832.database.windows.net"
+		},
+		"TripdataDB2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "taxi-data"
+		},
+		"TripdataDB2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khushboo"
+		},
+		"AdvWorks2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "khushbooserver87634.database.windows.net"
+		},
+		"AdvWorks2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "demodatabase"
+		},
+		"AdvWorks2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khushboo"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf67534_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLSGen2_accountKey": {
+						"value": "[parameters('ADLSGen2_accountKey')]"
+					},
+					"ADLSTripData_accountKey": {
+						"value": "[parameters('ADLSTripData_accountKey')]"
+					},
+					"Adlsgen22_accountKey": {
+						"value": "[parameters('Adlsgen22_accountKey')]"
+					},
+					"AdvWorksDb_password": {
+						"value": "[parameters('AdvWorksDb_password')]"
+					},
+					"BlobStorageProducts_connectionString": {
+						"value": "[parameters('BlobStorageProducts_connectionString')]"
+					},
+					"CusomerDb_password": {
+						"value": "[parameters('CusomerDb_password')]"
+					},
+					"CustomerBlobStorage_connectionString": {
+						"value": "[parameters('CustomerBlobStorage_connectionString')]"
+					},
+					"FlipkartBlobStorage1_connectionString": {
+						"value": "[parameters('FlipkartBlobStorage1_connectionString')]"
+					},
+					"FlipkartBlobStorage2_connectionString": {
+						"value": "[parameters('FlipkartBlobStorage2_connectionString')]"
+					},
+					"Flipkartnewstorage_connectionString": {
+						"value": "[parameters('Flipkartnewstorage_connectionString')]"
+					},
+					"Parquetflipkart_connectionString": {
+						"value": "[parameters('Parquetflipkart_connectionString')]"
+					},
+					"ProductBlobStorage_connectionString": {
+						"value": "[parameters('ProductBlobStorage_connectionString')]"
+					},
+					"TaxiTripDb_password": {
+						"value": "[parameters('TaxiTripDb_password')]"
+					},
+					"TripAggregateBlobStorage1_connectionString": {
+						"value": "[parameters('TripAggregateBlobStorage1_connectionString')]"
+					},
+					"TripdataDB2_password": {
+						"value": "[parameters('TripdataDB2_password')]"
+					},
+					"AdvWorks2_password": {
+						"value": "[parameters('AdvWorks2_password')]"
+					},
+					"LookupBlob_connectionString": {
+						"value": "[parameters('LookupBlob_connectionString')]"
+					},
+					"ADLSGen2_properties_typeProperties_url": {
+						"value": "[parameters('ADLSGen2_properties_typeProperties_url')]"
+					},
+					"ADLSTripData_properties_typeProperties_url": {
+						"value": "[parameters('ADLSTripData_properties_typeProperties_url')]"
+					},
+					"Adlsgen22_properties_typeProperties_url": {
+						"value": "[parameters('Adlsgen22_properties_typeProperties_url')]"
+					},
+					"AdvWorksDb_properties_typeProperties_server": {
+						"value": "[parameters('AdvWorksDb_properties_typeProperties_server')]"
+					},
+					"AdvWorksDb_properties_typeProperties_database": {
+						"value": "[parameters('AdvWorksDb_properties_typeProperties_database')]"
+					},
+					"AdvWorksDb_properties_typeProperties_userName": {
+						"value": "[parameters('AdvWorksDb_properties_typeProperties_userName')]"
+					},
+					"CusomerDb_properties_typeProperties_server": {
+						"value": "[parameters('CusomerDb_properties_typeProperties_server')]"
+					},
+					"CusomerDb_properties_typeProperties_database": {
+						"value": "[parameters('CusomerDb_properties_typeProperties_database')]"
+					},
+					"CusomerDb_properties_typeProperties_userName": {
+						"value": "[parameters('CusomerDb_properties_typeProperties_userName')]"
+					},
+					"TaxiTripDb_properties_typeProperties_server": {
+						"value": "[parameters('TaxiTripDb_properties_typeProperties_server')]"
+					},
+					"TaxiTripDb_properties_typeProperties_database": {
+						"value": "[parameters('TaxiTripDb_properties_typeProperties_database')]"
+					},
+					"TaxiTripDb_properties_typeProperties_userName": {
+						"value": "[parameters('TaxiTripDb_properties_typeProperties_userName')]"
+					},
+					"TripdataDB2_properties_typeProperties_server": {
+						"value": "[parameters('TripdataDB2_properties_typeProperties_server')]"
+					},
+					"TripdataDB2_properties_typeProperties_database": {
+						"value": "[parameters('TripdataDB2_properties_typeProperties_database')]"
+					},
+					"TripdataDB2_properties_typeProperties_userName": {
+						"value": "[parameters('TripdataDB2_properties_typeProperties_userName')]"
+					},
+					"AdvWorks2_properties_typeProperties_server": {
+						"value": "[parameters('AdvWorks2_properties_typeProperties_server')]"
+					},
+					"AdvWorks2_properties_typeProperties_database": {
+						"value": "[parameters('AdvWorks2_properties_typeProperties_database')]"
+					},
+					"AdvWorks2_properties_typeProperties_userName": {
+						"value": "[parameters('AdvWorks2_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adf67534_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf67534_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adf67534_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf67534_ArmTemplate_1')]"
+			]
+		}
+	]
+}

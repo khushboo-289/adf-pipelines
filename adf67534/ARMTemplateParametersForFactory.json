@@ -1,0 +1,114 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf67534"
+		},
+		"ADLSGen2_accountKey": {
+			"value": ""
+		},
+		"ADLSTripData_accountKey": {
+			"value": ""
+		},
+		"Adlsgen22_accountKey": {
+			"value": ""
+		},
+		"AdvWorksDb_password": {
+			"value": ""
+		},
+		"BlobStorageProducts_connectionString": {
+			"value": ""
+		},
+		"CusomerDb_password": {
+			"value": ""
+		},
+		"CustomerBlobStorage_connectionString": {
+			"value": ""
+		},
+		"FlipkartBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"FlipkartBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"Flipkartnewstorage_connectionString": {
+			"value": ""
+		},
+		"Parquetflipkart_connectionString": {
+			"value": ""
+		},
+		"ProductBlobStorage_connectionString": {
+			"value": ""
+		},
+		"TaxiTripDb_password": {
+			"value": ""
+		},
+		"TripAggregateBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"TripdataDB2_password": {
+			"value": ""
+		},
+		"AdvWorks2_password": {
+			"value": ""
+		},
+		"LookupBlob_connectionString": {
+			"value": ""
+		},
+		"ADLSGen2_properties_typeProperties_url": {
+			"value": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"ADLSTripData_properties_typeProperties_url": {
+			"value": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"Adlsgen22_properties_typeProperties_url": {
+			"value": "https://moviedb65476.dfs.core.windows.net/"
+		},
+		"AdvWorksDb_properties_typeProperties_server": {
+			"value": "khushbooserver7832.database.windows.net"
+		},
+		"AdvWorksDb_properties_typeProperties_database": {
+			"value": "DemoDatabase"
+		},
+		"AdvWorksDb_properties_typeProperties_userName": {
+			"value": "khushboo"
+		},
+		"CusomerDb_properties_typeProperties_server": {
+			"value": "dbserver867435.database.windows.net"
+		},
+		"CusomerDb_properties_typeProperties_database": {
+			"value": "exampledb"
+		},
+		"CusomerDb_properties_typeProperties_userName": {
+			"value": "khushboo"
+		},
+		"TaxiTripDb_properties_typeProperties_server": {
+			"value": "khushbooserver7832.database.windows.net"
+		},
+		"TaxiTripDb_properties_typeProperties_database": {
+			"value": "taxi-data"
+		},
+		"TaxiTripDb_properties_typeProperties_userName": {
+			"value": "khushboo"
+		},
+		"TripdataDB2_properties_typeProperties_server": {
+			"value": "khushbooserver7832.database.windows.net"
+		},
+		"TripdataDB2_properties_typeProperties_database": {
+			"value": "taxi-data"
+		},
+		"TripdataDB2_properties_typeProperties_userName": {
+			"value": "khushboo"
+		},
+		"AdvWorks2_properties_typeProperties_server": {
+			"value": "khushbooserver87634.database.windows.net"
+		},
+		"AdvWorks2_properties_typeProperties_database": {
+			"value": "demodatabase"
+		},
+		"AdvWorks2_properties_typeProperties_userName": {
+			"value": "khushboo"
+		}
+	}
+}
